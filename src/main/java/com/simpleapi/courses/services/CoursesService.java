@@ -32,4 +32,9 @@ public class CoursesService {
 		Course newCourse = this.courseRepository.save(new Course(courseDTO));
 		return CourseResponseDTO.fromEntity(newCourse);
 	}
+	
+	public void delete(Long id) {
+		this.findById(id);
+		this.courseRepository.deleteById(id);
+	}
 }
