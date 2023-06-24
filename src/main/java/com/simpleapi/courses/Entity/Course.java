@@ -26,5 +26,5 @@ public class Course {
 	public Course(CoursePayloadDTO courseDTO) {
 		this.setName(courseDTO.name());
 	}
-
+	
 }

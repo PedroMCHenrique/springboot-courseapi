@@ -7,4 +7,5 @@ public record CourseResponseDTO(Long id, String name) {
 	public static CourseResponseDTO fromEntity(Course course) {
 		return new CourseResponseDTO(course.getId(), course.getName());
 	}
+
 }

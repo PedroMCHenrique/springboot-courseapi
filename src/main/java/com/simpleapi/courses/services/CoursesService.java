@@ -37,4 +37,14 @@ public class CoursesService {
 		this.findById(id);
 		this.courseRepository.deleteById(id);
 	}
+	
+	public CourseResponseDTO update(CoursePayloadDTO newCourse, Long id) {
+		Course updatedCourse = courseRepository.findById(id)
+				.map((course) -> {
+					course.setName(newCourse.name());
+				return courseRepository.save(course);
+				})
+				.orElseThrow(() -> ThrowableFactory.createNotFoundException(Course.class));
+		return CourseResponseDTO.fromEntity(updatedCourse);
+	}
 }
